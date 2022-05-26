@@ -10,7 +10,10 @@ import 'signposts_bindings_generated.dart';
 /// Emits a Point-of-interest signpost for the "flutter" category.  These will
 /// show up in Instruments with the "Points of interest" instrument.
 void emitEvent(String msg) { 
-  _bindings.flt_signposts_emit(msg.toNativeUtf8().cast());
+  int result = _bindings.flt_signposts_emit(msg.toNativeUtf8().cast());
+  if (result != 0) {
+    throw Exception('emitEvent error: $result');
+  }
 }
 
 const String _libName = 'signposts';

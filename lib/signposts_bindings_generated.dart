@@ -26,7 +26,7 @@ class SignpostsBindings {
           lookup)
       : _lookup = lookup;
 
-  void flt_signposts_emit(
+  int flt_signposts_emit(
     ffi.Pointer<ffi.Int8> str,
   ) {
     return _flt_signposts_emit(
@@ -35,8 +35,8 @@ class SignpostsBindings {
   }
 
   late final _flt_signposts_emitPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Int8>)>>(
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Int8>)>>(
           'flt_signposts_emit');
   late final _flt_signposts_emit =
-      _flt_signposts_emitPtr.asFunction<void Function(ffi.Pointer<ffi.Int8>)>();
+      _flt_signposts_emitPtr.asFunction<int Function(ffi.Pointer<ffi.Int8>)>();
 }
