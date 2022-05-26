@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - signposts (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - signposts (from `.symlinks/plugins/signposts/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  signposts:
+    :path: ".symlinks/plugins/signposts/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 405776dd0763d7e32a8f989d4e271ca1317d080c
+  signposts: 6aef65cd4a96ad0717de4c5ac793d1db9d5fbc82
+
+PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
+
+COCOAPODS: 1.11.2
