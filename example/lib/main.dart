@@ -17,7 +17,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
+    signposts.Interval interval = signposts.Interval('start super.initState');
     super.initState();
+    interval.end('end super.initState');
     signposts.emitEvent('hello');
   }
 

@@ -9,10 +9,40 @@ import 'signposts_bindings_generated.dart';
 
 /// Emits a Point-of-interest signpost for the "flutter" category.  These will
 /// show up in Instruments with the "Points of interest" instrument.
-void emitEvent(String msg) { 
+void emitEvent(String msg) {
   int result = _bindings.flt_signposts_emit(msg.toNativeUtf8().cast());
   if (result != 0) {
     throw Exception('emitEvent error: $result');
+  }
+}
+
+/// Starts recording a region.
+/// see also: [endInterval]
+void beginInterval(int identifier, String msg) {
+  int result = _bindings.flt_signposts_begin_interval(identifier, msg.toNativeUtf8().cast());
+  if (result != 0) {
+    throw Exception('beginInterval error: $result');
+  }
+}
+
+/// Ends recording a region (previously started with beginInterval).
+/// see also: [beginInterval]
+void endInterval(int identifier, String msg) {
+  int result = _bindings.flt_signposts_end_interval(identifier, msg.toNativeUtf8().cast());
+  if (result != 0) {
+    throw Exception('beginInterval error: $result');
+  }
+}
+
+/// Convenience wrapper for [beginInterval] and [endInterval].
+class Interval {
+  static int _count = 1;
+  Interval(String msg) : identifier = _count++ {
+    beginInterval(identifier, msg);
+  }
+  final int identifier;
+  void end(String msg) {
+    endInterval(identifier, msg);
   }
 }
 

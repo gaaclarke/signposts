@@ -39,4 +39,38 @@ class SignpostsBindings {
           'flt_signposts_emit');
   late final _flt_signposts_emit =
       _flt_signposts_emitPtr.asFunction<int Function(ffi.Pointer<ffi.Int8>)>();
+
+  int flt_signposts_begin_interval(
+    int identifier,
+    ffi.Pointer<ffi.Int8> str,
+  ) {
+    return _flt_signposts_begin_interval(
+      identifier,
+      str,
+    );
+  }
+
+  late final _flt_signposts_begin_intervalPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Uint64,
+              ffi.Pointer<ffi.Int8>)>>('flt_signposts_begin_interval');
+  late final _flt_signposts_begin_interval = _flt_signposts_begin_intervalPtr
+      .asFunction<int Function(int, ffi.Pointer<ffi.Int8>)>();
+
+  int flt_signposts_end_interval(
+    int identifier,
+    ffi.Pointer<ffi.Int8> str,
+  ) {
+    return _flt_signposts_end_interval(
+      identifier,
+      str,
+    );
+  }
+
+  late final _flt_signposts_end_intervalPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Uint64,
+              ffi.Pointer<ffi.Int8>)>>('flt_signposts_end_interval');
+  late final _flt_signposts_end_interval = _flt_signposts_end_intervalPtr
+      .asFunction<int Function(int, ffi.Pointer<ffi.Int8>)>();
 }
